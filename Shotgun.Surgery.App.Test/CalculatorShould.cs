@@ -9,8 +9,8 @@
         [SetUp]
         public void Setup()
         {
-            givenNumber1 = Number.Create(GetRamdonNumberExceptOne(18));
-            givenNumber2 = Number.Create(GetRamdonNumberExceptOne(18));
+            givenNumber1 = Number.Create();
+            givenNumber2 = Number.Create();
             calculator = new Calculator();
         }
 
@@ -44,12 +44,6 @@
             var result = calculator.Split(givenNumber1, givenNumber2);
 
             Assert.IsTrue(result == givenNumber1.Value / givenNumber2.Value);
-        }
-
-        public int GetRamdonNumberExceptOne(int except)
-        {
-            int randomNumber = new Random().Next(1, 21);
-            return randomNumber == except ? randomNumber + 1 : randomNumber;
         }
     }
 }
